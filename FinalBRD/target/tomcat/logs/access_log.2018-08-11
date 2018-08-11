@@ -1,0 +1,8 @@
+0:0:0:0:0:0:0:1 - - [11/Aug/2018:19:18:17 +0530] "GET /FinalBRD HTTP/1.1" 302 - http-bio-8080-exec-1 0
+0:0:0:0:0:0:0:1 - - [11/Aug/2018:19:18:20 +0530] "GET /FinalBRD/ HTTP/1.1" 200 1520 http-bio-8080-exec-3 3041
+0:0:0:0:0:0:0:1 - - [11/Aug/2018:19:18:20 +0530] "GET /favicon.ico HTTP/1.1" 404 - http-bio-8080-exec-4 0
+0:0:0:0:0:0:0:1 - - [11/Aug/2018:19:18:27 +0530] "POST /FinalBRD/j_spring_security_check HTTP/1.1" 302 - http-bio-8080-exec-5 395
+0:0:0:0:0:0:0:1 - - [11/Aug/2018:19:18:27 +0530] "GET /FinalBRD/welcomeadmin HTTP/1.1" 200 1044 http-bio-8080-exec-6 80
+0:0:0:0:0:0:0:1 - - [11/Aug/2018:19:18:28 +0530] "GET /FinalBRD/welcomeadmin/new HTTP/1.1" 200 1897 http-bio-8080-exec-7 292
+0:0:0:0:0:0:0:1 - - [11/Aug/2018:19:18:36 +0530] "POST /FinalBRD/welcomeadmin/new HTTP/1.1" 500 290 http-bio-8080-exec-9 510
+0:0:0:0:0:0:0:1 - - [11/Aug/2018:19:22:30 +0530] "POST /FinalBRD/welcomeadmin/new HTTP/1.1" 500 316 http-bio-8080-exec-10 357

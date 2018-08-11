@@ -1,0 +1,30 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+	http://www.springframework.org/schema/security
+	http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+	<beans:import resource="dispatcher-servlet.xml"/>
+	<http auto-config="true">
+	<intercept-url pattern="/" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+	<intercept-url pattern="/logoutpage" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+	<!-- <intercept-url pattern="welcomeuser/logout" access="IS_AUTHENTICATED_ANONYMOUSLY"/> -->
+	<intercept-url pattern="/accessdenied" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+	<intercept-url pattern="/welcomeuser" access="ROLE_USER"/>
+	<intercept-url pattern="/welcomeadmin" access="ROLE_ADMIN"/>
+	<intercept-url pattern="/welcomeuser/*" access="ROLE_USER"/>
+	<intercept-url pattern="/welcomeadmin/*" access="ROLE_ADMIN"/>
+<form-login login-page="/" authentication-success-handler-ref="authSuccess" authentication-failure-url="/authFail" ></form-login>
+	<logout logout-success-url="/logoutpage" invalidate-session="true"/>
+	<access-denied-handler error-page="/accessdenied"/>
+    </http>
+	<authentication-manager>
+	<authentication-provider>
+	 <password-encoder ref="encoder"></password-encoder>
+	<jdbc-user-service data-source-ref="dataSource" 
+	users-by-username-query="select username,password,enabled from user_shikha where username=?" 
+	authorities-by-username-query="select user_shikha.username,role_shikha.rname from role_shikha join user_shikha on(role_shikha.rid=user_shikha.role_rid) where user_shikha.username =?"/>
+	</authentication-provider>
+	</authentication-manager>
+	</beans:beans>
